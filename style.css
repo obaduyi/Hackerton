@@ -37,6 +37,7 @@
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
+    
 }
 
 .navbar_menu{
@@ -86,18 +87,19 @@
 }
 
 .navbar_item:hover{
-    color: darkgray;
-    text-decoration: underline darkgrey;
+    background: rgb(44, 44, 44);
     transition: all 0.7s ease;
 }
 
-@media screen and (max-width: 970px) {
+
+@media screen and (max-width: 768px) {
     .navbar_container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 80px;
         width: 100%;
+        z-index: 1;
         padding: 0;
     }
 
@@ -153,10 +155,16 @@
         opacity: 1;
     }
 
-    .navbar_item {
-        width: 100%;
+    .highlight{
+        background: #00dbde;
+    
     }
-
+    .navbar_item:hover{
+        background:  rgb(187, 184, 184);
+        transition: all 0.7s ease;
+        width: 50%;
+        
+    }
     .navbar_links {
         display: block;
         padding: 1.5rem;
@@ -169,7 +177,7 @@
     .navbar_btn {
         padding: 1rem;
     }
-
+   
     .button {
         display: flex;
         justify-content: center;
@@ -184,7 +192,17 @@
         font-size: 1.2rem;
     }
 }
-
+@media screen and (max-width: 1024px){
+    #navbar_logo{
+        padding-left: 70px;
+    }
+    
+}
+@media screen and (max-width: 426px){
+    #navbar_logo{
+        padding-left: 10px;
+    }
+}
 
 /* hero section */
 
@@ -230,7 +248,7 @@
 }
 
 .highlight{
-    border-bottom: 4px solid rgb(132, 0, 255);
+    border-bottom: 4px solid  rgb(187, 184, 184);
 
 }
 .main_btn{
@@ -419,25 +437,30 @@
     .main_img_container{
         display: flex;
         justify-content: center;
+        
     }
     
     .main_imageCard{
         height: 425px;
         width: 425px;
+        
     }
     
     .main_content{
         text-align: center;
         margin-bottom: 4rem;
+        
     
     }
     
     .main_content h1{
         font-size: 2.5rem;
         margin-top: 2rem;
+        
     }
     .main_content h2{
         font-size: 3rem;
+        
     }
     
     .main_content p{
@@ -445,7 +468,11 @@
         font-size: 1.5rem;
     }
 }
-
+@media screen and (max-width: 320px){
+    #navbar_logo{
+        font-size: x-large;
+    }
+}
 @media screen and (max-width: 400px) {
     .main_imageCard{
         width: 250px;
@@ -460,10 +487,12 @@
     }
     
     .main_content p{
+        
         margin-top: 2rem;
     }
     
     .main_btn{
+        
         padding: 12px 36px;
         margin: 2.5rem 0;
     }
@@ -684,4 +713,211 @@ background: linear-gradient(to right, #2C7744, #5A3F37);
         padding: 10px;
         width: 100%;
     }
+} 
+
+/* chat ai */
+.chatai{
+    position: fixed;
+    right: 40px;
+    bottom: 100px;
+    width: 420px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 15px;
+    opacity: 0;
+    box-shadow:0 0 128px 0 black,
+                0 32px 64px -48px black;
+    
+    transform: scale(0.5); 
+    
+    pointer-events: none;
+    transition: all 0.1s ease;
+    transform-origin: bottom right;
+ 
+    z-index: 9;
+}
+.chatai-toggler{
+    position: fixed;
+    right: 40px;
+    bottom: 35px;
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    border: none;
+    display: flex;
+    outline: none;
+    cursor: pointer;
+    background: black;
+    border-radius: 50%;
+    align-items: center;
+    transition: all 0.2s ease;
+    justify-content: center;
+}
+.chatai-toggler span{
+    position: absolute;
+}
+.show-chatai .chatai-toggler span:first-child,
+.chatai-toggler span:last-child{
+    opacity: 0;
+}
+.show-chatai .chatai-toggler span:last-child{
+    opacity: 1;
+}
+/* .show-chatai .chatai-toggler{
+    transform: rotate(90deg);
+} */
+
+
+
+.chatai-toggler span{
+    position: absolute;
+}
+.chatai header{
+    background: black;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+    height: 80px;
+}
+.chatai header h2{
+    background-image: linear-gradient(to top, red 0%, pink 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.6rem;
+}
+.chatai .chatbox{
+    height: 350px;
+    overflow-y: auto;
+    padding: 30px 20px 70px;
+}
+.chatbox .chat p{
+    color: #fff;
+    white-space: pre-wrap;
+    max-width: 75%;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 10px;
+    background: black;
+}
+
+.chatbox .incoming p{
+    color: black;
+    background: rgb(238, 237, 237);
+    border-radius: 10px 10px 10px 0;
+}
+.chatbox .outgoing{
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+.chatbox .incoming span{
+    height: 32px;
+    width: 32px;
+    color: #fff;
+    align-self: flex-end;
+    background:rgb(236, 200, 200);;
+    text-align: center;
+    margin: 0 10px 7px 0;
+}
+.chatai .chat-input{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid rgb(233, 226, 226);
+    background: white;
+    padding: 5px 20px;
+    display: flex;
+    gap: 5px;
+}
+.chat-input textarea{
+    height: 55px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    max-height: 180px;
+    resize: none;
+    padding: 16px 15px 16px 0;
+}
+.chat-input span{
+    align-self: flex-end;
+    height: 55px;
+    line-height: 55px;
+    color: black;
+    font-size: 1.35rem;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.chat-input textarea:valid ~ span{
+    visibility: visible;
+}
+
+.show-chatai .chatai{
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.chatai header span{
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    color: #fff;
+    display: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.chatbox .chat{
+    display: flex;
+}
+
+.chatbox .chat p.error{
+    color: red;
+    background: white;
+}
+
+@media(max-width: 490px){
+    .chatai{
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        border-radius: 0;
+    }
+    .chatai .chatbox{
+        height: 90%;
+    }
+    .chatai header span{
+        display: block;
+        left: 360px;
+        height: 1%;
+    }
+    .chatai-toggler {
+        cursor: pointer;
+        position: fixed;
+        right: 40px;
+        bottom: 20px;
+    }
+    @media(max-width: 390px){
+        .chatai header span{
+            display: block;
+            left: 310px;
+            height: 1%;
+        }
+    }
+    @media(max-width: 320px){
+        .chatai header span{
+            display: block;
+            left: 270px;
+            height: 1%;
+        }
+    }
+    @media(max-width: 1024px){
+        .chatai header span{
+           height: 1px;
+        }
+    }
+    
 } 
