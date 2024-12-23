@@ -6,11 +6,10 @@
     <meta name="author" content="Anjolaoluwa Obaduyi">
     <title>Hackerton project</title>
     <link rel="stylesheet" href="style.css">
-    
+    <script src="interview.js" defer></script>
 </head>
  
 <body>
-    
     <!--nav section  -->
     <!-- HTML section -->
     <nav class="navbar">
@@ -166,6 +165,27 @@
 
         </section>
     </div> 
-    <script src="app.js"></script>
+    <!-- Chat Ai -->
+
+    <button class="chatai-toggler">
+        <span class="material-symbols-outlined">Chat</span>
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatai">
+        <header>
+            <h2>ChatAi</h2>
+            <span class="close-btn material-symbols-outlined">close</span>
+        </header>
+        <ul class="chatbox">
+            <li class="chat incoming">
+                <span class="material-symbols-outlined"><!-- ai--></span> 
+                <p>Hi <br> how can i help</p>
+            </li>
+        </ul>
+        <div class="chat-input">
+            <textarea placeholder="Enter message" required></textarea>
+            <span id="send-btn" class="material-symbols-outlined">send</span>
+        </div>
+    </div>
 </body>
 </html>
